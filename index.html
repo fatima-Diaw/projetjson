@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SEN MONEY</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+
+</head>
+
+<body>
+
+    <div class="containere">
+
+        <h2>SEN MONEY</h2><br>
+        <!--<div id="id01"></div>-->
+        <form name="form" id="id01">
+
+                    <script>
+                        obj = {"tra":"choix"};  //1
+
+                        dbParam = JSON.stringify(obj); //2
+                        xmlhttp = new XMLHttpRequest();
+                        xmlhttp.onreadystatechange = function() {
+                            if (this.readyState == 4 && this.status == 200) {
+                                listNumero(this.responseText);
+                            }
+                        }
+                        xmlhttp.open("GET", "connect.php?x=" + dbParam, true);
+                        xmlhttp.send();
+
+                        function listNumero(response) {
+                        var numbase = JSON.parse(response);
+
+                        var out = "<select id=\"num\">";
+
+                        for(let x in numbase) {
+                            out += "<tr><option>" +
+                            numbase[x].numero +
+                            "</option></tr>";
+                        }
+                        out += "</select>";
+                        document.getElementById("id01").innerHTML = out;
+
+                    }
+
+                    </script>
+
+
+        </form>
+
+        <br>
+        <button onclick="main();" class="btn btn-success">#221#</button>
+    </div>
+
+
+</body>
+
+</html>

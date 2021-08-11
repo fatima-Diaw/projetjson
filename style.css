@@ -1,0 +1,23 @@
+/* CSS Document */
+div
+{
+    border: 1px red solid;
+    width: 200px;
+    height: 130px;
+    text-align: center;
+}
+
+input
+{
+    text-align: center;
+}
+
+h3
+{
+    color: black;
+}
+
+button
+{
+    color: black;
+}
